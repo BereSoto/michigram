@@ -16,5 +16,6 @@ def hello_world(request):
 
 def hi(request):
 
-   
-    return HttpResponse('Hi!')
+    numbers = [int(i) for i in request.GET['numbers'].split(',')]
+    sorted_ints = sorted(numbers)
+    return HttpResponse(str(numbers), content_type='application/json')
